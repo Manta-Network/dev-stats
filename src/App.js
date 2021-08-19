@@ -39,6 +39,7 @@ function App() {
                 [pI.extrinsic]: all.filter(efI => efI.extrinsic === pI.extrinsic && efI.pallet === pI.pallet).map(x => ({
                   time: x.actual.time,
                   unit: x.actual.unit,
+                  machine: x.machine,
                   repo: x.repo,
                   sha: x.sha.slice(0, 7),
                   observed: x.observed, // todo: replace with commit time, when available
@@ -75,6 +76,7 @@ function App() {
                         <tr>
                           <th>sha</th>
                           <th>time</th>
+                          <th>machine</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -87,6 +89,7 @@ function App() {
                                 </a>
                               </td>
                               <td>{benchmark.time} {benchmark.unit}</td>
+                              <td>{benchmark.machine}</td>
                             </tr>
                           ))
                         }
